@@ -49,7 +49,7 @@
             <a <?php echo ($page == 'makeup') ? "class='nav-link active'" : "class='nav-link'"; ?> href="makeup.php">
               <i class="nav-icon fas fa-list"></i>
               <p>
-                Data Jenis Make-Up
+                Data Jenis Make Up
               </p>
             </a>
           </li>
