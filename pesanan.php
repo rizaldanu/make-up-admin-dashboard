@@ -13,7 +13,7 @@ include "navigation.php";
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Data Pesanan | Ochii Make-Up</title>
+  <title>Data Pesanan | Ochii Make Up Artist</title>
 </head>
 
 <!-- Content Wrapper. Contains page content -->

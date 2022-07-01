@@ -14,7 +14,7 @@ include "navigation.php";
 <html>
 
 <head>
-  <title>Laporan | Ochii Make-Up</title>
+  <title>Laporan | Ochii Make Up Artist</title>
 </head>
 
 <!-- Content Wrapper. Contains page content -->

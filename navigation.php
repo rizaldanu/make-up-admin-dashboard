@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="index.html" class="brand-link">
       <img src="dist/img/ochii-logo.png" alt="Ochii Make-Up" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Ochii Make-Up</span>
+      <span class="brand-text font-weight-light">Ochii Make Up Artist</span>
     </a><br>
 
     <!-- Sidebar -->

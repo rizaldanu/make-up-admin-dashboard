@@ -13,7 +13,7 @@ include "navigation.php";
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Data Jenis Make-Up | Ochii Make-Up</title>
+  <title>Data Jenis Make Up | Ochii Make Up Artist</title>
 </head>
 
 <!-- Content Wrapper. Contains page content -->
@@ -23,12 +23,12 @@ include "navigation.php";
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Data Jenis Make-Up</h1>
+            <h1 class="m-0">Data Jenis Make Up</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data Jenis Make-Up</li>
+              <li class="breadcrumb-item active">Data Jenis Make Up</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

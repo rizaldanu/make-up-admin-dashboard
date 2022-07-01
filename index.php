@@ -13,7 +13,7 @@ include "navigation.php";
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard | Ochii Make-Up</title>
+  <title>Dashboard | Ochii Make Up Artist</title>
 </head>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -37,7 +37,7 @@ include "navigation.php";
     <div class="d-flex justify-content-center">
       <img src="dist/img/ochii-logo.jpg"></img>
     </div></br>
-    <h1 align="center">Admin Dashboard Ochii Make-Up Artist</h1>
+    <h1 align="center">Admin Dashboard Ochii Make Up Artist</h1>
   </div>
 </html>
 
