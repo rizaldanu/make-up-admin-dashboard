@@ -5,20 +5,20 @@ if (empty($_SESSION['username'])) {
 }
 ?>
 <?php
-$page = 'makeup';
+$page = 'item_tambahan';
 include "header.php";
 include "navigation.php";
 include "config.php";
 
-$result = $db->query("SELECT * FROM makeup");
-$makeups = $result->fetch_all(MYSQLI_ASSOC);
+$result = $db->query("SELECT * FROM item_tambahan");
+$items = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>Data Jenis Make Up | Ochii Make Up Artist</title>
+  <title>Data Item Tambahan | Ochii Make Up Artist</title>
 </head>
 
 <!-- Content Wrapper. Contains page content -->
@@ -28,12 +28,12 @@ $makeups = $result->fetch_all(MYSQLI_ASSOC);
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Data Jenis Make Up</h1>
+          <h1 class="m-0">Data Item Tambahan</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Data Jenis Make Up</li>
+            <li class="breadcrumb-item active">Data Item Tambahan</li>
           </ol>
         </div><!-- /.col -->
 
@@ -46,43 +46,40 @@ $makeups = $result->fetch_all(MYSQLI_ASSOC);
         <div class="col">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Jenis Make Up</h3>
+              <h3 class="card-title">Data Item Tambahan</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <a class="btn btn-success btn-sm mb-2" href="tambah-makeup.php">
+              <a class="btn btn-success btn-sm mb-2" href="tambah-item.php">
                 <i class="nav-icon fas fa-plus"></i>
                 Tambah Baru
               </a>
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Kode Make Up</th>
-                    <th>Jenis Make Up</th>
-                    <th>Keterangan</th>
-                    <th>Harga</th>
+                    <th>Kode Item</th>
+                    <th>Nama Item</th>
+                    <th>Harga Item</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($makeups as $makeup) : ?>
+                  <?php foreach ($items as $item) : ?>
                     <tr>
-                      <td><?= $makeup['kode_makeup']; ?></td>
-                      <td><?= $makeup['jenis_makeup']; ?></td>
-                      <td><?= $makeup['keterangan']; ?></td>
-                      <td><?= $makeup['harga']; ?></td>
-                      <td><a class="btn btn-primary btn-sm" href="edit-makeup.php?editid=<?php echo $makeup['kode_makeup']; ?>">Edit</a><span> </span><a class="btn btn-danger btn-sm" href="hapus-makeup.php?id=<?php echo $makeup['id']; ?>">Hapus</a></td>
+                      <td><?= $item['kode_item']; ?></td>
+                      <td><?= $item['nama_item']; ?></td>
+                      <td><?= $item['harga_item']; ?></td>
+                      <td><a class="btn btn-primary btn-sm" href="edit-item-tambahan.php?editid=<?php echo $item['id']; ?>">Edit</a><span> </span><a class="btn btn-danger btn-sm" href="hapus-item-tambahan.php?id=<?php echo $item['id']; ?>">Hapus</a></td>
                     </tr>
                   <?php endforeach; ?>
                   <!-- <?php
-                        $result = mysqli_query($db, "SELECT * FROM makeup");
+                        $result = mysqli_query($db, "SELECT * FROM item_tambahan");
                         if ($result) {
                           while ($row = $result->fetch_assoc()) {
                             echo '<tr>
-                              <td scope="row">' . $row["kode_makeup"] . '</td>
-                              <td>' . $row["jenis_makeup"] . '</td>
-                              <td> ' . $row["keterangan"] . '</td>
-                              <td> ' . $row["harga"] . '</td>
+                              <td scope="row">' . $row["kode_item"] . '</td>
+                              <td>' . $row["nama_item"] . '</td>
+                              <td> ' . $row["harga_item"] . '</td>
                               <td><a class="btn btn-primary btn-sm" href="edit.php">Edit</a><span> </span><a class="btn btn-danger btn-sm" href="hapus.php">Hapus</a></td>
                             </tr>';
                           }

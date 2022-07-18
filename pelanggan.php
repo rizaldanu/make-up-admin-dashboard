@@ -9,6 +9,9 @@ $page = 'pelanggan';
 include "header.php";
 include "navigation.php";
 include "config.php";
+
+$result = $db->query("SELECT * FROM user"); 
+$customers = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +63,18 @@ include "config.php";
                   </tr>
                 </thead>
                 <tbody>
-                  <?php
+                  <?php foreach($customers as $customer) : ?>
+                    <tr>
+                      <td><?= $customer['id']; ?></td>
+                      <td><?= $customer['username']; ?></td>
+                      <td><?= $customer['first_name']; ?></td>
+                      <td><?= $customer['last_name']; ?></td>
+                      <td><?= $customer['phone']; ?></td>
+                      <td><?= $customer['alamat']; ?></td>
+                      <td><a class="btn btn-primary btn-sm" href="edit-pelanggan.php?editid=<?php echo $customer['id'];?>">Edit</a><span> </span><a class="btn btn-danger btn-sm" href="hapus-pelanggan.php?id=<?php echo $customer['id'];?>">Hapus</a></td>
+                    </tr>
+                  <?php endforeach; ?>
+                  <!-- <?php
                   $result = mysqli_query($db, "SELECT * FROM user");
                   if ($result) {
                     while ($row = $result->fetch_assoc()) {
@@ -77,7 +91,7 @@ include "config.php";
                   } else {
                     echo "0 results";
                   }
-                  ?>
+                  ?> -->
                 </tbody>
               </table>
             </div>
