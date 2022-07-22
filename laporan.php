@@ -210,6 +210,12 @@ include "navigation.php";
                                                   } ?>">Next</a>
                     </li> -->
               </ul>
+              <ul class="pagination justify-content-center">
+                <a class="btn btn-primary btn-sm mb-2" onclick="window.print()">
+                  <i class="nav-icon fas fa-print"></i>
+                  Cetak Laporan
+                </a>
+              </ul>
             </nav>
           </div>
         </div>

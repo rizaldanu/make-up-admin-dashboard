@@ -10,7 +10,7 @@ include "config.php";
 $limit = isset($_SESSION['records-limit']) ? $_SESSION['records-limit'] : 8;
 $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
 $paginationStart = ($page - 1) * $limit;
-$orders = $db->query("SELECT * FROM pesanan LIMIT $paginationStart, $limit")->fetch_all(MYSQLI_ASSOC);
+$orders = $db->query("SELECT * FROM pesanan ORDER BY id DESC LIMIT $paginationStart, $limit")->fetch_all(MYSQLI_ASSOC);
 // Get total records
 $sql = $db->query("SELECT count(id) AS id FROM pesanan")->fetch_all(MYSQLI_ASSOC);
 $allRecrods = $sql[0]['id'];
