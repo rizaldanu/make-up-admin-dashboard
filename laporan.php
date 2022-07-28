@@ -10,7 +10,7 @@ include "config.php";
 $limit = isset($_SESSION['records-limit']) ? $_SESSION['records-limit'] : 8;
 $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
 $paginationStart = ($page - 1) * $limit;
-$orders = $db->query("SELECT * FROM pesanan LIMIT $paginationStart, $limit")->fetch_all(MYSQLI_ASSOC);
+$orders = $db->query("SELECT * FROM pesanan WHERE status='Selesai' LIMIT $paginationStart, $limit")->fetch_all(MYSQLI_ASSOC);
 // Get total records
 $sql = $db->query("SELECT count(id) AS id FROM pesanan")->fetch_all(MYSQLI_ASSOC);
 $allRecrods = $sql[0]['id'];
@@ -34,6 +34,24 @@ $pesanan_proses = $db->query("SELECT count(*) AS id FROM pesanan WHERE status='P
 $rows_proses = $pesanan_proses[0]['id'];
 ?>
 
+
+<?php
+$resultMakeup = mysqli_query($db, 'SELECT SUM(harga) AS makeup_sum FROM pesanan where status="Selesai"');
+$row_Totalmakeup = mysqli_fetch_assoc($resultMakeup);
+$sumMakeup = $row_Totalmakeup['makeup_sum'];
+
+$resultItem = mysqli_query($db, 'SELECT SUM(harga_item) AS item_sum FROM pesanan where status="Selesai"');
+$row_Totalitem = mysqli_fetch_assoc($resultItem);
+$sumItem = $row_Totalitem['item_sum'];
+
+function rupiah($angka)
+{
+  $hasil_rupiah = "Rp " . number_format($angka, 0, ',', '.');
+  return $hasil_rupiah;
+}
+$totalpendapatan = $sumMakeup + $sumItem
+
+?>
 
 <?php
 $page = 'laporan';
@@ -123,15 +141,15 @@ include "navigation.php";
           <!-- small card -->
           <div class="small-box bg-primary">
             <div class="inner">
-              <h3><?php echo $allRecrods; ?></h3>
+              <h3><?php echo rupiah($totalpendapatan); ?></h3>
 
-              <p>Total Pesanan</p>
+              <p>Total Pendapatan</p>
             </div>
             <div class="icon">
               <i class="fas fa-calculator"></i>
             </div>
             <a href="#" class="small-box-footer">
-              <i class="fas fa-globe"></i>
+              Tidak termasuk biaya transport
             </a>
           </div>
         </div>
@@ -164,6 +182,8 @@ include "navigation.php";
                 <th scope="col">Tanggal Pesan</th>
                 <th scope="col">Tanggal Makeup</th>
                 <th scope="col">Status</th>
+                <th scope="col">Harga Makeup</th>
+                <th scope="col">Harga Item Tambahan</th>
               </tr>
             </thead>
             <tbody>
@@ -176,6 +196,8 @@ include "navigation.php";
                   <td scope="row"><?php echo $order['tanggal_pesan']; ?></td>
                   <td scope="row"><?php echo $order['tanggal_makeup']; ?></td>
                   <td scope="row"><?php echo $order['status']; ?></td>
+                  <td scope="row"><?php echo $order['harga']; ?></td>
+                  <td scope="row"><?php echo $order['harga_item']; ?></td>
                 </tr>
               <?php endforeach; ?>
             </tbody>

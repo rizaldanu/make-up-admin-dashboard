@@ -98,7 +98,7 @@ include "navigation.php";
                       <td scope="row"><?php echo $order['tanggal_pesan']; ?></td>
                       <td scope="row"><?php echo $order['tanggal_makeup']; ?></td>
                       <td scope="row"><?php echo $order['status']; ?></td>
-                      <td><a class="btn btn-success btn-sm" href="konfirmasi.php?id=<?php echo $order['id'];?>">Konfirmasi</a><span> </span><a class="btn btn-primary btn-sm" href="edit-pesanan.php?editid=<?php echo $order['id'];?>">Edit</a><span> </span><a class="btn btn-danger btn-sm" href="hapus-pesanan.php?id=<?php echo $order['id'];?>">Hapus</a></td>
+                      <td><a class="btn btn-success btn-sm" href="konfirmasi_pesanan.php?editid=<?php echo $order['id'];?>">Konfirmasi</a><span> </span><a class="btn btn-primary btn-sm" href="edit-pesanan.php?editid=<?php echo $order['id'];?>">Edit</a><span> </span><a class="btn btn-danger btn-sm" href="hapus-pesanan.php?id=<?php echo $order['id'];?>">Hapus</a></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
