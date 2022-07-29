@@ -11,5 +11,7 @@ Dashboard untuk mengelola [Make Up Bot](https://github.com/rizaldanu/make-up-bot
 - [x] Mengelola Data Make Up
 - [x] Mengelola Data Item Tambahan
 - [x] Laporan
+    - [x] Laporan Pesanan Selesai
+    - [x] Laporan Pendapatan
 ##
 <center>Made with ❤</center>
